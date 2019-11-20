@@ -1,0 +1,20 @@
+Generating this week's newsletter...
+
+Subject: Flatiron Springfield Newsletter - Jun 13, 2019
+Recipients: rhona@grimes.info, edmond@ko.org, bryant@cummingsfisher.biz, lucinda@beckerbogisich.biz, wilhelminaullrich@hartmann.info, shelby@kuhlmankilback.co, katheruecker@lockman.net, benedictblanda@collierkuhn.net, ivory@collins.com, argelia@vonruedenparisian.biz, alfonzoklein@robel.io, forest@herman.name, denishahn@west.org, alfredbrown@wuckert.net, joan@jacobi.co, trinidad@macgyver.co, shaynepurdy@schaeferwisozk.co, kianafritsch@lesch.biz, raymundoruel@legros.net, thomasenaboehm@keeling.net, lynwood@lakin.biz, coleen@cormierparker.com, luiswisoky@mcdermottpadberg.com
+Body:
+Flatiron Springfield Newsletter - Jun 13, 2019
+Mining
+by: Destiny Blanda Bruen II
+The orthogonal features, when combined, can explode into complexity.
+
+Retail
+by: Robin Flatley Hilpert
+In our daily lives as programmers, we process text strings a lot. So I tried to work hard on text processing, namely the string class and regular expressions. Regular expressions are built into the language and are very tuned up for use.
+
+Technology
+by: Olevia Torphy Kuvalis
+Imagine you are writing an email. You are in front of the computer. You are operating the computer, clicking a mouse and typing on a keyboard, but the message will be sent to a human over the internet. So you are working before the computer, but with a human behind the computer.
+
+Work hard, be nice, and have an epic week! //
+ Flatiron School · Springfield · 171 Maple St, Springfield, MA 01105 
