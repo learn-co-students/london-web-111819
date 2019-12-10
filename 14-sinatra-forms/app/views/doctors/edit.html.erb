@@ -1,0 +1,12 @@
+hello please edit this doctor who is called <%= @doctor.name %>
+<form method="post" action="/doctors/<%= @doctor.id %>">
+    <input name="_method" type="hidden" value="patch" />
+    <input name="doctor[name]" type="text" placeholder="Name..." value="<%= @doctor.name %>" />
+    <input name="doctor[specialism]" type="text" placeholder="Specialism..." value="<%= @doctor.specialism %>" />
+    <input name="doctor[years_experience]" type="number" placeholder="Years of experience..." step="1" value="<%= @doctor.years_experience %>"/>
+    <input type="submit" value="Update doctor" />
+</form>
+<form method="post" action="/doctors/<%= @doctor.id %>">
+    <input name="_method" type="hidden" value="delete" />
+    <input type="submit" value="Delete doctor" style="background: red;" />
+</form>

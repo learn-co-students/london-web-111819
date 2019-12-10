@@ -1,1 +1,6 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+hello please make a new patient
+<form method="post" action="/patients">
+    <input name="patient[name]" type="text" placeholder="Name..." />
+    <input name="patient[age]" type="number" placeholder="age..." step="1" />
+    <input type="submit" />
+</form>

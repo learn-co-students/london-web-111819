@@ -2,6 +2,7 @@ class PatientsController < ApplicationController
 
   # GET: /patients
   get "/patients" do
+    @patients = Patient.all
     erb :"/patients/index.html"
   end
 
@@ -12,26 +13,33 @@ class PatientsController < ApplicationController
 
   # POST: /patients
   post "/patients" do
-    redirect "/patients"
+    patient = Patient.create(params[:patient])
+    redirect "/patients/#{patient.id}"
   end
 
   # GET: /patients/5
   get "/patients/:id" do
+    @patient = Patient.find(params[:id])
     erb :"/patients/show.html"
   end
 
   # GET: /patients/5/edit
   get "/patients/:id/edit" do
+    @patient = Patient.find(params[:id])
     erb :"/patients/edit.html"
   end
 
   # PATCH: /patients/5
   patch "/patients/:id" do
-    redirect "/patients/:id"
+    patient = Patient.find(params[:id])
+    patient.update(params[:patient])
+    redirect "/patients/#{patient.id}"
   end
 
-  # DELETE: /patients/5/delete
-  delete "/patients/:id/delete" do
+  # DELETE: /patients/5
+  delete "/patients/:id" do
+    patient = Patient.find(params[:id])
+    patient.destroy
     redirect "/patients"
   end
 end

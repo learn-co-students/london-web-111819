@@ -1,0 +1,1 @@
+Patient.create(name: 'sam', age: 29)
