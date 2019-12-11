@@ -1,0 +1,11 @@
+hello please edit this patient who is called <%= @patient.name %>
+<form method="post" action="/patients/<%= @patient.id %>">
+    <input name="_method" type="hidden" value="patch" />
+    <input name="patient[name]" type="text" placeholder="Name..." value="<%= @patient.name %>" />
+    <input name="patient[age]" type="number" placeholder="age..." step="1" value="<%= @patient.age %>"/>
+    <input type="submit" value="Update patient" />
+</form>
+<form method="post" action="/patients/<%= @patient.id %>">
+    <input name="_method" type="hidden" value="delete" />
+    <input type="submit" value="Delete patient" style="background: red;" />
+</form>

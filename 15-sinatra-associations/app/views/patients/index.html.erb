@@ -1,0 +1,8 @@
+<h1>This is the patient's index page.</h1>
+<% if @patients.size == 0 %>
+    <div>oops there are no patient,s go to the form</div>
+<% else %>
+    <% @patients.each do |patient| %>
+        <div><a href="/patients/<%= patient.id %>"><%= patient.name != nil ? patient.name : 'this patient has no name' %></a></div>
+    <% end %>
+<% end %>
