@@ -1,0 +1,25 @@
+<% if @appointment.id != nil %>
+<form method="post" action="/appointments/<%= @appointment.id %>">
+    <input type="hidden" value="patch" name="_method">
+<% else %>
+<form method="post" action="/appointments">
+<% end %>
+    <input type="text" name="appointment[date]" value=<%= @appointment.date %>/>
+    <input type="text" name="appointment[time]" value="<%= @appointment.time %>"/>
+    <% if @doctor == nil %>
+    <select name="appointment[doctor_id]">
+        <% @doctors.each do |doctor| %>
+            <option <%= doctor.id == @appointment.doctor_id ? 'selected' : '' %> value=<%= doctor.id %>>Dr. <%= doctor.name %> or medincine</option>
+        <% end %>
+    </select>
+    <% else %>
+        <p>You are booking an appointment with <%= @doctor.name %></p>
+        <input type="hidden" name="appointment[doctor_id]" value="<% @doctor.id %>">
+    <% end %>
+    <select name="appointment[patient_id]">
+        <% @patients.each do |patient| %>
+            <option value=<%= patient.id %>><%= patient.name %></option>
+        <% end %>
+    </select>
+    <input type="submit" />
+</form>

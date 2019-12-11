@@ -1,0 +1,2 @@
+<h1><%= @appointment.doctor.name %> is seeing <%= @appointment.patient.name %> on <%= @appointment.date.strftime("%A %d %b %Y") %> at <%= @appointment.time %></h1>
+<a href="/appointments/<%= @appointment.id %>/edit">edit</a>

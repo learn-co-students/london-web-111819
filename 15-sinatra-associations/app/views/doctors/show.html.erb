@@ -2,3 +2,4 @@
 <h2>Docotr specialism: <%= @doctor.specialism %></h2>
 <h2>Docotr years experience: <%= @doctor.years_experience %></h2>
 <a href="/doctors/<%= @doctor.id %>/edit">Edit this doctor</a>
+<a href="/appointments/new?doctor_id=<%= @doctor.id %>">book this doctor</a>
