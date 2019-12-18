@@ -1,0 +1,15 @@
+<h3><%= @destination.name %>, <%= @destination.country %></h3>
+
+<% if @featured_post %>
+<p>Featured Post: <%= link_to @featured_post.title, @featured_post%></p>
+
+<p>Recent Posts:</p>
+<% @recent_posts.each do |post| %>
+  <h4><%= post.title%></h4>
+  <p><%= post.content %></p>
+  <br>
+<% end %>
+<% else %>
+<p><%= @destination.name %> hasn't had any posts written about it yet.</p>
+<% end %>
+<p>Average Age: <%= @average_age %></p>
