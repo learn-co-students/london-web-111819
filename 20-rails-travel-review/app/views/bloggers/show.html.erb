@@ -1,0 +1,8 @@
+<h3><%= link_to @blogger.name, @blogger %></h3>
+<p><%= @blogger.bio %></p>
+<p>Total Likes: <%= @total_likes %></p>
+<% if @featured_post %>
+  <p>Featured Post: <%= link_to @featured_post.title, @featured_post %></p>
+<% else %>
+  <p><%= @blogger.name%> hasn't written any posts yet.</p>
+<% end %>
