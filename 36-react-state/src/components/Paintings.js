@@ -4,13 +4,6 @@ import Painting from './Painting'
 import paintings from '../data/paintings'
 
 class Paintings extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {
-
-  //   }
-  // }
-
   state = {
     paintings: paintings
   }
@@ -26,6 +19,8 @@ class Paintings extends React.Component {
     return (
       <ul>
         {filteredPainting.map(painting => (
+          // Should we pass anything else to each Painting?
+          // Where will that thing come from? 🤔
           <Painting key={painting.id} painting={painting} />
         ))}
       </ul>

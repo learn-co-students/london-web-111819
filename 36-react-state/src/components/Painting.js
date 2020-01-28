@@ -1,6 +1,9 @@
 import React from 'react'
 
-// React.createElement('li')
+/*
+So you know at some point we want to do something when we click something here.
+What do you want to click? What should happen when we click it?
+*/
 
 const Painting = props => {
   return (
