@@ -6,11 +6,12 @@ What do you want to click? What should happen when we click it?
 */
 
 const Painting = props => {
+  const handleClick = () => props.selectPainting(props.painting)
   return (
     <li>
       <h2>Title: {props.painting.title}</h2>
       <h3>Artist name: {props.painting.artist.name}</h3>
-      <img src={props.painting.image} />
+      <img onClick={handleClick} src={props.painting.image} />
     </li>
   )
 }

@@ -21,7 +21,11 @@ class Paintings extends React.Component {
         {filteredPainting.map(painting => (
           // Should we pass anything else to each Painting?
           // Where will that thing come from? 🤔
-          <Painting key={painting.id} painting={painting} />
+          <Painting
+            selectPainting={this.props.selectPainting}
+            key={painting.id}
+            painting={painting}
+          />
         ))}
       </ul>
     )
