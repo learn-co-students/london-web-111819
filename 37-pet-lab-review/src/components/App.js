@@ -11,6 +11,11 @@ class App extends React.Component {
     }
   }
 
+  removePet = petId => {
+    const pets = this.state.pets.filter(pet => pet.id !== petId)
+    this.setState({ pets })
+  }
+
   adoptPet = petId => {
     /*
     from: [m2, m3, m4, m5] << m1
@@ -45,7 +50,15 @@ class App extends React.Component {
     })
   }
 
+  componentDidMount () {
+    console.log('App finished rendering!')
+    this.getPets()
+  }
+
   render () {
+    console.log('App started rendering!')
+    const { updateFilter, getPets, adoptPet, removePet } = this
+    const { pets } = this.state
     return (
       <div className='ui container'>
         <header>
@@ -54,13 +67,14 @@ class App extends React.Component {
         <div className='ui container'>
           <div className='ui grid'>
             <div className='four wide column'>
-              <Filters
-                updateFilter={this.updateFilter}
-                getPets={this.getPets}
-              />
+              <Filters updateFilter={updateFilter} getPets={getPets} />
             </div>
             <div className='twelve wide column'>
-              <PetBrowser pets={this.state.pets} />
+              <PetBrowser
+                pets={pets}
+                adoptPet={adoptPet}
+                removePet={removePet}
+              />
             </div>
           </div>
         </div>

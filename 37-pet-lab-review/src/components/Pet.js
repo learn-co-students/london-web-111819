@@ -1,10 +1,22 @@
 import React from 'react'
 
 class Pet extends React.Component {
+  // componentWillUnmount () {
+  //   console.log(
+  //     `WHYYYYYY!?!?! I WILL GET YOU! I'm ${this.props.pet.name} by the way...`
+  //   )
+  // }
+
+  componentDidMount () {
+    console.log('Pet finished rendering!')
+  }
+
   render () {
-    const { gender, name, type, age, weight, isAdopted } = this.props.pet
+    console.log('Pet started rendering!')
+    const { gender, name, type, age, weight, isAdopted, id } = this.props.pet
     return (
       <div className='card'>
+        <button onClick={() => this.props.removePet(id)}>X</button>
         <div className='content'>
           <a className='header'>
             {gender === 'female' ? '♀' : '♂'}
@@ -22,7 +34,12 @@ class Pet extends React.Component {
           {isAdopted ? (
             <button className='ui disabled button'>Already adopted</button>
           ) : (
-            <button className='ui primary button'>Adopt pet</button>
+            <button
+              onClick={() => this.props.adoptPet(id)}
+              className='ui primary button'
+            >
+              Adopt pet
+            </button>
           )}
         </div>
       </div>
