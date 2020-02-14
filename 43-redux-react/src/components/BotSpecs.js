@@ -1,5 +1,10 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
+// back
+// enlistBot
+
 const BotSpecs = props => {
   let { bot, back, enlist } = props;
 
@@ -67,16 +72,10 @@ const BotSpecs = props => {
                 </div>
               </div>
             </div>
-            <button
-              className="ui button fluid"
-              onClick={back}
-            >
+            <button className="ui button fluid" onClick={back}>
               Go Back
             </button>
-            <button
-              className="ui button fluid"
-              onClick={enlist}
-            >
+            <button className="ui button fluid" onClick={() => enlist(bot)}>
               Enlist
             </button>
           </div>
@@ -84,7 +83,13 @@ const BotSpecs = props => {
       </div>
     </div>
   );
-
 };
 
-export default BotSpecs;
+const mapDispatchToProps = dispatch => {
+  return {
+    back: () => dispatch({ type: "CLEAR_SELECTED_BOT" }),
+    enlist: bot => dispatch({ type: "ENLIST_BOT", payload: { bot } })
+  };
+};
+
+export default connect(null, mapDispatchToProps)(BotSpecs);

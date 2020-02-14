@@ -1,68 +1,42 @@
 import React from "react";
 import BotCollection from "./BotCollection";
-import YourBotArmy from './YourBotArmy'
-import BotSpecs from '../components/BotSpecs'
+import YourBotArmy from "./YourBotArmy";
+import BotSpecs from "../components/BotSpecs";
+import { connect } from "react-redux";
 
-const botsUrl = 'http://localhost:3000/bots'
+const botsUrl = "http://localhost:3000/bots";
 
-const fetchBots = () => fetch(botsUrl).then(resp => resp.json())
+const fetchBots = () => fetch(botsUrl).then(resp => resp.json());
 
 class BotsPage extends React.Component {
   //start here with your code for step one
 
-  state = {
-    bots: [],
-    enlistedBotIds: [],
-    selectedBotId: null
-  }
-
   componentDidMount() {
-    fetchBots()
-      .then(bots => this.setState({ bots }))
+    fetchBots().then(bots => this.props.setBots(bots));
   }
-
-  enlistBot = bot => {
-    if (this.state.enlistedBotIds.includes(bot.id)) return;
-    if (this.getEnlistedBots().map(bot => bot.bot_class).includes(bot.bot_class)) return;
-
-    this.setState({
-      enlistedBotIds: [...this.state.enlistedBotIds, bot.id]
-    })
-  }
-
-  delistBot = bot => {
-    this.setState({
-      enlistedBotIds: this.state.enlistedBotIds.filter(enlistedBotId => enlistedBotId !== bot.id)
-    })
-  }
-
-  getEnlistedBots = () => this.state.enlistedBotIds
-    .map(
-      enlistedBotId =>
-        this.state.bots.find(bot => bot.id === enlistedBotId)
-    )
-
-  getSelectedBot = () => this.state.bots.find(bot => bot.id === this.state.selectedBotId)
-
-  selectBot = bot => this.setState({ selectedBotId: bot.id })
-
-  clearSelectedBot = () => this.setState({ selectedBotId: null })
 
   render() {
-
-    const selectedBot = this.getSelectedBot()
+    const { selectedBot } = this.props;
 
     return (
       <div>
-        <YourBotArmy bots={this.getEnlistedBots()} delistBot={this.delistBot} />
-        {
-          selectedBot ? <BotSpecs back={this.clearSelectedBot} enlist={() => this.enlistBot(selectedBot)} bot={selectedBot} /> :
-            <BotCollection bots={this.state.bots} botClick={this.selectBot} />
-        }
+        <YourBotArmy />
+        {selectedBot ? <BotSpecs bot={selectedBot} /> : <BotCollection />}
       </div>
     );
   }
-
 }
 
-export default BotsPage;
+const mapStateToProps = state => {
+  return {
+    selectedBot: state.bots.find(bot => bot.id === state.selectedBotId)
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setBots: bots => dispatch({ type: "SET_BOTS", payload: { bots } })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BotsPage);
